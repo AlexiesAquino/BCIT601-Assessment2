@@ -1,0 +1,28 @@
+BCIT601 Assessment 2 – Iteration 3
+
+**Experiment 1: TF-IDF N-gram Comparison**
+
+Dataset: 80 service request records  
+Training set: 64 records  
+Testing set: 16 records  
+Split: 80/20, random_state=42, stratified by category
+
+| Model configuration | Accuracy | Correct predictions |
+|---|---:|---:|
+| TF-IDF unigrams (baseline) | 87.50% | 14/16 |
+| TF-IDF unigrams + bigrams | 75.00% | 12/16 |
+
+**Finding:** Adding bigrams reduced test accuracy by 12.50 percentage points. The unigram configuration remains the better-performing model in this experiment. The dataset and test set are small, so the result should be interpreted cautiously.
+
+
+**Experiment 2: Logistic Regression Regularisation**
+
+The Logistic Regression model was evaluated using three values of the regularisation parameter C: 0.1, 1.0, and 10.0. All experiments used the same TF-IDF unigram features and the same stratified 80/20 train-test split with random_state=42.
+
+| C value | Accuracy | Correct predictions |
+|---|---:|---:|
+| 0.1 | 87.50% | 14/16 |
+| 1.0 | 87.50% | 14/16 |
+| 10.0 | 87.50% | 14/16 |
+
+**Finding:** Changing the C parameter did not affect accuracy or the classification report on this test set. Therefore, the baseline value C=1.0 will be retained because the alternative settings did not demonstrate a measurable improvement. The small test set limits the strength of this conclusion.

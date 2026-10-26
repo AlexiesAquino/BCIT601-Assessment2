@@ -1,0 +1,23 @@
+BCIT601 Assessment 2 – Iteration 3 API Testing Evidence
+
+**1. Endpoint Tests**
+
+- GET `/health`: Passed. Returned HTTP 200 with `{"status": "ok"}`.
+- GET `/categories`: Passed. Returned HTTP 200 with the four categories: road, safety, waste, and water.
+- POST `/predict`: Passed. Valid requests returned HTTP 200 with `predicted_category` and `confidence`.
+
+**2. Valid Prediction Tests**
+
+Five valid requests were tested. Four matched their expected categories: road, waste, water, and road. One safety-related request was incorrectly classified as water. All five requests returned HTTP 200.
+
+**3. Invalid Input Tests**
+
+- Empty request text: HTTP 400 — passed.
+- Missing `request_text` field: HTTP 400 — passed.
+- Non-string request text: HTTP 400 — passed.
+
+All invalid requests returned an appropriate error message.
+
+**4. Observations**
+
+The API endpoints and input validation behaved as expected during these tests. However, the model incorrectly classified a suspicious-person report as water, demonstrating that successful API responses do not guarantee correct predictions. Further model evaluation and human review remain important.
